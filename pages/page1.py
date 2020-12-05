@@ -69,7 +69,14 @@ layout = html.Div([
         id="example-output", 
         style={"vertical-align": "middle"}
     ),
-    dbc.Table.from_dataframe(df_2016, striped=True, bordered=True, hover=True, dark=True, responsive=True),
+    dbc.Table.from_dataframe(
+        df_2016, 
+        striped=True, 
+        bordered=True, 
+        hover=True, 
+        dark=True, 
+        responsive=True
+    ),
 #    ]),
 html.Div(
     style={'backgroundColor': colors['background']}, 

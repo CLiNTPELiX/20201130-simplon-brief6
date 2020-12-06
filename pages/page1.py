@@ -51,31 +51,35 @@ colors = {
 
 fig = px.scatter(df, x='income', y='international', color='year', title='International score in terms of the income score per year' )
 
-def generate_table(dataframe, max_rows=5):
-    return html.Table([
-                     html.Thead(
-                                 html.Tr([html.Th(col) for col in dataframe.columns])
-                                 ),
-                     html.Tbody([
-                                 html.Tr([
-                                         html.Td(dataframe.iloc[i][col]) for col in dataframe.columns
-                                         ]) for i in range(min(len(dataframe), max_rows))
-                                 ])
-                     ])
+# def generate_table(dataframe, max_rows=10):
+#     return html.Table(
+#         # Header
+#         [html.Tr([html.Th(col) for col in dataframe.columns])] +
+
+#         # Body
+#         [html.Tr([
+#             html.Td(dataframe.iloc[i][col]) for col in dataframe.columns
+#         ]) for i in range(min(len(dataframe), max_rows))]
+#     )
 
 layout = html.Div([
-    dbc.Button("Télécharger le CSV ", color="info", id="example-button", className="mr-2"),
-    html.Span(
-        id="example-output", 
-        style={"vertical-align": "middle"}
-    ),
+    dbc.Button("Télécharger le CSV ", 
+               color="info", 
+               id="example-button", 
+               className="mr-2", 
+               href="/"),
+    
+    # html.Span(
+    #     id="example-output", 
+    #     style={"vertical-align": "middle"}
+    # ),
     dbc.Table.from_dataframe(
         df_2016, 
         striped=True, 
         bordered=True, 
         hover=True, 
         dark=True, 
-        responsive=True
+        responsive=False
     ),
 #    ]),
 html.Div(

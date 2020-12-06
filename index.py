@@ -38,29 +38,33 @@ CONTENT_STYLE = {
 
 
 # Navbar
-sidebar = html.Div(
-    [
-        html.H2("Dashboard", className="display-4"),
-        html.H4("TimesData", className="display-6"),
-        html.Hr(),
-        html.P(
-            "Affichage du set de données du Times : Années 2016", className="lead"
-        ),
-        html.P(
-            "Menu"
-            ),
-        dbc.Nav(
+sidebar = dbc.Container(
+    [ 
+        html.Div(
             [
-                dbc.NavLink("Question 1", href="/page1", id="page1-link"),
-                dbc.NavLink("Question 2", href="/page2", id="page2-link"),
-                dbc.NavLink("Test 3", href="/page3", id="page3-link"),
-                dbc.NavLink("Test 4", href="/page4", id="page4-link"),
+                html.H2("Dashboard", className="display-4"),
+                html.H4("TimesData", className="display-6"),
+                html.Hr(),
+                html.P(
+                    "Affichage du set de données du Times : Années 2016", className="lead"
+                ),
+                html.P(
+                    "Menu"
+                    ),
+                dbc.Nav(
+                    [
+                        dbc.NavLink("Question 1", href="/page1", id="page1-link"),
+                        dbc.NavLink("Question 2", href="/page2", id="page2-link"),
+                        dbc.NavLink("Test 3", href="/page3", id="page3-link"),
+                        dbc.NavLink("Test 4", href="/page4", id="page4-link"),
+                    ],
+                    vertical=True,
+                    pills=True,
+                ),
             ],
-            vertical=True,
-            pills=True,
-        ),
-    ],
-    style=SIDEBAR_STYLE,
+            style=SIDEBAR_STYLE,
+        )
+    ]
 )
 
 content = html.Div(id="page-content", style=CONTENT_STYLE)
